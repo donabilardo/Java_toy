@@ -1,0 +1,30 @@
+1)   Используйте команды операционной системы Linux и создайте две новых директории – «Игрушки для школьников» и «Игрушки для дошколят»
+mkdir /home/vg/Toys_Schoolchild; mkdir /home/vg/Toys_Preschool
+
+2)   Создайте в директории «Игрушки для школьников» текстовые файлы - «Роботы», «Конструктор», «Настольные игры»
+touch /home/vg/Toys_Schoolchild/robots; touch /home/vg/Toys_Schoolchild/creator; touch /home/vg/Toys_Schoolchild/board_games; 
+
+3)    Создайте в директории «Игрушки для дошколят» текстовые файлы «Мягкие игрушки», «Куклы», «Машинки»
+touch /home/vg/Toys_Preschool/soft_toys; touch /home/vg/Toys_Preschool/dolls; touch /home/vg/Toys_Preschool/cars;
+
+4)   Объединить 2 директории в одну «Имя Игрушки»
+cd /home/vg
+mkdir Toys_Name
+mv Toys_Preschool/ Toys_Name/
+mv Toys_Schoolchild/ Toys_Name/
+
+5)   Переименовать директорию «Имя Игрушки» в «Игрушки»
+mv Toys_Name/ Toys/
+
+6)   Просмотреть содержимое каталога «Игрушки».
+ls Toys/
+
+7)   Установить и удалить snap-пакет. (Любой, какой хотите)
+sudo su
+snap version
+snap install gimp
+snap remove gimp
+
+8)   Добавить произвольную задачу для выполнения каждые 3 минуты (Например, запись в текстовый файл чего-то или копирование из каталога А в каталог Б).
+crontab -e
+15 * * * 1 cp /home/vg/Toys/Toys_Schoolchild/* /home/vg/Toys/Toys_Preschool
